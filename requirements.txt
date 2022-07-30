@@ -1,5 +1,5 @@
 asgiref==3.4.1
-backports.zoneinfo==0.2.1
+backports.zoneinfo;python_version<"3.9"
 boto3==1.21.4
 botocore==1.24.5
 certifi==2022.6.15
