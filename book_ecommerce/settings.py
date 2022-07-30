@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework.authtoken',
     'rest_framework',
+    'drf_yasg',
     'core',
 ]
 
@@ -57,6 +58,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 15,
     'COERCE_DECIMAL_TO_STRING': False,
     'DATETIME_FORMAT': "%Y-%m-%dT%H:%M:%S",
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 MIDDLEWARE = [
