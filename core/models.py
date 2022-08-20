@@ -32,9 +32,9 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    USER_TYPE = (('USER', 'USER'), ('ADMIN', 'ADMIN'), ('CREATOR', 'CREATOR'), ('COMPANY', 'COMPANY'))
-    TYPE_SEX = [('MASCULINO', 'MASCULINO'), ('FEMININO', 'FEMININO'), ('PREFIRO NÃO INFORMAR', 'PREFIRO NÃO INFORMAR')]      
-    
+    USER_TYPE = (('USER', 'USER'), ('ADMIN', 'ADMIN'), ('WRITER', 'WRITER'), ('COMPANY', 'COMPANY'))
+    TYPE_SEX = [('MASCULINO', 'MASCULINO'), ('FEMININO', 'FEMININO'), ('PREFIRO NÃO INFORMAR', 'PREFIRO NÃO INFORMAR')]
+
     name = models.CharField(max_length=255, blank=False, null=True)
     nickname = models.CharField(max_length=255, blank=False, null=True)
     description = models.TextField(null=True, blank=True)
@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
     image_user = models.ImageField(upload_to='media', blank=True, null=True)
     facebook = models.CharField(max_length=255, null=True, blank=True)
     instagram = models.CharField(max_length=255, null=True, blank=True)
-    twitter = models.CharField(max_length=255, null=True, blank=True)  
+    twitter = models.CharField(max_length=255, null=True, blank=True)
     balance = models.FloatField(null=True, default=0)
     forgot_password_hash = models.CharField(max_length=255, null=True, blank=True)
     forgot_password_expire = models.DateTimeField(null=True, blank=True)
