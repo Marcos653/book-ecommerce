@@ -94,3 +94,10 @@ class User(AbstractBaseUser):
 
     class Meta:
         ordering = ('-created_at',)
+
+
+class Category(models.Model):
+    category = models.CharField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        return self.category

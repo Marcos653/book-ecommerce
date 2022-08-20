@@ -33,8 +33,8 @@ class CustomAuthToken(ObtainAuthToken):
                             'type_user': user.type_user,
                         })
             else:
-                
-                return Response({"message": "User is disabled!"}, status=status.HTTP_400_BAD_REQUEST)  
+
+                return Response({"message": "User is disabled!"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -62,12 +62,12 @@ class UserViewSet(viewsets.ModelViewSet):
             return self.get_paginated_response(data, )
 
 
-            
+
         queryset = User.objects.filter(is_admin=False)
         page = self.paginate_queryset(queryset)
         data = self.serializer_class(page, many=True).data
-        
-        return self.get_paginated_response(data, )  
+
+        return self.get_paginated_response(data, )
 
 
 
@@ -80,3 +80,7 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer = serializer[0]
         return Response(serializer)
 
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.order_by('category')
+    serializer_class = CategorySerializer
